@@ -1,10 +1,13 @@
 pipeline{
 	
-	agent any
-	
-	tools {
-		maven 'Maven'
+	agent {
+
+		docker {
+            image 'maven:3.9.9-eclipse-temurin-17'
+            args '-v /root/.m2:/root/.m2'   // cache maven dependencies
+        }
 	}
+	
 	
 	stages {
 		
