@@ -5,6 +5,10 @@ pipeline{
 	tools {
 		maven  'Maven'
 	}
+
+	parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'Which Git branch to build?')
+    }
 	
 	stages {
 		
