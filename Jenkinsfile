@@ -58,13 +58,18 @@ pipeline{
 			
 			bat '''
 			
+			echo Creating Deploy folder if not exist
+			
+			if not exist C:\\deploy mkdir C:\\deploy
+			
+			
 			echo Copy war file from target folder to Deploy folder
 			
-			copy target\\jenkinstest-0.0.1-SNAPSHOT.war c:\\deploy\\jenkinstest.war
+			copy target\\jenkinstest-0.0.1-SNAPSHOT.war C:\\deploy\\jenkinstest.war
 			
 			echo Now going to deploy Springboot Application...
 			
-			start "" java -jar c:\\deploy\\jenkinstest.war
+			start "" java -jar C:\\deploy\\jenkinstest.war
 			
 			'''
 			
