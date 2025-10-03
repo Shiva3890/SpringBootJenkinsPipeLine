@@ -51,9 +51,7 @@ pipeline{
 			
 			'''
 			
-		}
 		
-		steps{
 			
 			bat '''
 			echo Now going to deploy Springboot Application...
