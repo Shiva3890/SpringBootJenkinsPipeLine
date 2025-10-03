@@ -30,6 +30,40 @@ pipeline{
 			bat 'mvn -B clean package'
 		}
 	}
+	
+	
+	stage('deploy'){
+		
+		steps{
+			
+			bat '''
+			
+			        echo checking if port 8080 is running ....
+			        
+			        for /f "tokens=5" %%a in ('netstat -ano ^| findstr :8080 ^| findstr LISTENING' ) do (
+						
+						echo killing process with PID %%a
+						
+						taskkill /F /PID %%a
+						
+					)
+			
+			
+			'''
+			
+		}
+		
+		steps{
+			
+			bat '''
+			echo Now going to deploy Springboot Application...
+			
+			start "" java -jar target\\jenkinstest-0.0.1-SNAPSHOT.war
+			
+			'''
+			
+		}
+	}
 		
 		
 		
