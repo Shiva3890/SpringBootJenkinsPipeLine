@@ -51,12 +51,20 @@ pipeline{
 			     exit 0
 			'''
 			
+			
+			
+			
 		
 			
 			bat '''
+			
+			echo Copy war file from target folder to Deploy folder
+			
+			copy target\\jenkinstest-0.0.1-SNAPSHOT.war c:\\deploy\\jenkinstest.war
+			
 			echo Now going to deploy Springboot Application...
 			
-			start "" java -jar target\\jenkinstest-0.0.1-SNAPSHOT.war
+			start "" java -jar c:\\deploy\\jenkinstest.war
 			
 			'''
 			
