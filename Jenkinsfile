@@ -74,7 +74,9 @@ pipeline{
 			echo Now going to deploy Springboot Application...
 			
 			echo Starting Spring Boot Application...
-            start "" cmd /c "java -jar C:\\deploy\\jenkinstest.war > C:\\deploy\\springboot.log 2>&1"
+			nssm stop SpringBootApp
+			copy C:\\deploy\\jenkinstest.war C:\\deploy\\jenkinstest.war
+			nssm start SpringBootApp
 
 
 			
