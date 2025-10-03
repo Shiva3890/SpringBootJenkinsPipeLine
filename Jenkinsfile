@@ -67,6 +67,10 @@ pipeline{
 			
 			copy target\\jenkinstest-0.0.1-SNAPSHOT.war C:\\deploy\\jenkinstest.war
 			
+			'''
+			
+			bat '''
+			
 			echo Now going to deploy Springboot Application...
 			
 			echo Starting Spring Boot Application...
