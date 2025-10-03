@@ -87,7 +87,7 @@ pipeline{
 		
 		
 		success {
-			cleanWs()
+			//cleanWs()
 			echo 'Build Succeeded'
 		}
 		
