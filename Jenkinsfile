@@ -69,7 +69,8 @@ pipeline{
 			
 			echo Now going to deploy Springboot Application...
 			
-			start "" java -jar C:\\deploy\\jenkinstest.war
+			echo Starting Spring Boot Application...
+            start /B java -jar C:\\deploy\\jenkinstest.war > C:\\deploy\\springboot.log 2>&1
 			
 			'''
 			
@@ -83,7 +84,7 @@ pipeline{
 	
 	post {
 		
-		always{
+		success{
 			cleanWs()
 		}
 		
