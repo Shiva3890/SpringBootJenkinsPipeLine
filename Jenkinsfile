@@ -70,7 +70,8 @@ pipeline{
 			echo Now going to deploy Springboot Application...
 			
 			echo Starting Spring Boot Application...
-            start "" cmd //c "java -jar C:\\deploy\\jenkinstest.war > C:\\deploy\\springboot.log 2>&1"
+            start "" java -jar C:\\deploy\\jenkinstest-0.0.1-SNAPSHOT.jar > C:\\deploy\\springboot.log 2>&1
+
 
 			
 			'''
