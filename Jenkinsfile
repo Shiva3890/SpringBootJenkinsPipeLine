@@ -74,7 +74,7 @@ pipeline{
 			echo Now going to deploy Springboot Application...
 			
 			echo Starting Spring Boot Application...
-            start /B java -jar C:\\deploy\\jenkinstest-0.0.1-SNAPSHOT.war > C:\\deploy\\springboot.log 2>&1
+            start /B java -jar C:\\deploy\\jenkinstest.war > C:\\deploy\\springboot.log 2>&1
 
 
 			
