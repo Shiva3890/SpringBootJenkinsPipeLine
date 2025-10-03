@@ -19,6 +19,7 @@ public class InitController {
 		fruitsList.add("Banana");
 		fruitsList.add("Papaya");
 		fruitsList.add("Grapes");
+		fruitsList.add("Pineapple");
 		
 		return fruitsList.toString();
 	}
