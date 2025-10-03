@@ -69,18 +69,44 @@ pipeline{
 			
 			'''
 			
+			//bat '''
+			
+			//echo Now going to deploy Springboot Application...
+			
+			//echo Starting Spring Boot Application...
+            //start /B java -jar C:\\deploy\\jenkinstest.war > C:\\deploy\\springboot.log 2>&1
+
+
+			
+			//'''
+			
+		}
+	}
+	
+	
+	stage('Docker Build and Run'){
+		
+		
+		steps{
+			
 			bat '''
 			
-			echo Now going to deploy Springboot Application...
+			REM Build Docker Image
+			docker build -t jenkisTest .
 			
-			echo Starting Spring Boot Application...
-			nssm stop SpringBootApp
-			copy C:\\deploy\\jenkinstest.war C:\\deploy\\jenkinstest.war
-			nssm start SpringBootApp
-
-
+			
+			REM Stops and Remove existing container if running 
+			
+			for /F "tokens=*" %%i in ('docker ps -q -f name=springboot-app') do docker stop %%i
+            for /F "tokens=*" %%i in ('docker ps -a -q -f name=springboot-app') do docker rm %%i
+            
+             REM Run the container in detached mode
+             
+             docker run -d -p 8080:8080 --name jenkinsDocker jenkisTest
+			
 			
 			'''
+			
 			
 		}
 	}
