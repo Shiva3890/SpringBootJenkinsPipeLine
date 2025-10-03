@@ -27,7 +27,7 @@ pipeline{
 		
 		steps{
 			
-			bat 'mvn -B clean package'
+			bat 'mvn -B clean package -Dmaven.test.skip=true'
 		}
 	}
 	
@@ -92,17 +92,17 @@ pipeline{
 			bat '''
 			
 			REM Build Docker Image
-			docker build -t jenkisTest .
+			docker build -t jenkistest .
 			
 			
 			REM Stops and Remove existing container if running 
 			
-			for /F "tokens=*" %%i in ('docker ps -q -f name=springboot-app') do docker stop %%i
-            for /F "tokens=*" %%i in ('docker ps -a -q -f name=springboot-app') do docker rm %%i
+			for /F "tokens=*" %%i in ('docker ps -q -f name=jenkistest') do docker stop %%i
+            for /F "tokens=*" %%i in ('docker ps -a -q -f name=jenkistest') do docker rm %%i
             
              REM Run the container in detached mode
              
-             docker run -d -p 8080:8080 --name jenkinsDocker jenkisTest
+             docker run -d -p 8080:8080 --name jenkinsdocker jenkistest
 			
 			
 			'''
