@@ -48,7 +48,7 @@ pipeline{
 						
 					)
 			
-			
+			     exit 0
 			'''
 			
 		
